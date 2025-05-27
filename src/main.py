@@ -38,7 +38,6 @@ async def health_check() -> GeneralResponse:
 @app.post("/gugu", response_model=GeneralResponse)
 async def gugu(request: GuguCalculateRequest) -> GeneralResponse:
     gugu_svc = Gugu()
-    print("@@", Gugu.get_stringified_results)
     gugu_results = gugu_svc.calculate(request.n)
     display_text = Gugu.get_stringified_results(gugu_results)
     return GeneralResponse(
