@@ -10,7 +10,9 @@ class Gugu:
         if not all(isinstance(x, int) for x in (min_range, max_range)):
             raise TypeError("between의 각 요소는 정수여야 합니다.")
         if min_range > max_range:
-            raise ValueError("between의 첫 번째 값은 두 번째 값보다 작거나 같아야 합니다.")
+            raise ValueError(
+                "between의 첫 번째 값은 두 번째 값보다 작거나 같아야 합니다."
+            )
         return min_range, max_range
 
     @property

@@ -33,29 +33,43 @@ def test_valid_between():
     result = Gugu._validate_between((1, 9))
     assert result == (1, 9)
 
+
 def test_not_a_tuple():
-    with pytest.raises(ValueError, match="between은 2개의 정수로 이루어진 튜플이어야 합니다."):
+    with pytest.raises(
+        ValueError, match="between은 2개의 정수로 이루어진 튜플이어야 합니다."
+    ):
         Gugu([1, 9])
 
+
 def test_tuple_length_not_two():
-    with pytest.raises(ValueError, match="between은 2개의 정수로 이루어진 튜플이어야 합니다."):
+    with pytest.raises(
+        ValueError, match="between은 2개의 정수로 이루어진 튜플이어야 합니다."
+    ):
         Gugu((1,))  # 요소가 하나만 있음
+
 
 def test_non_integer_elements():
     with pytest.raises(TypeError, match="between의 각 요소는 정수여야 합니다."):
         Gugu((1, "a"))
 
+
 def test_first_greater_than_second():
-    with pytest.raises(ValueError, match="between의 첫 번째 값은 두 번째 값보다 작거나 같아야 합니다."):
+    with pytest.raises(
+        ValueError, match="between의 첫 번째 값은 두 번째 값보다 작거나 같아야 합니다."
+    ):
         Gugu((5, 2))
 
-@pytest.mark.parametrize("invalid_input", [
-    "2",
-    2.0,
-    None,
-    [2],
-    {"n": 2},
-])
+
+@pytest.mark.parametrize(
+    "invalid_input",
+    [
+        "2",
+        2.0,
+        None,
+        [2],
+        {"n": 2},
+    ],
+)
 def test_invalid_non_integer_input(invalid_input):
     gugu = Gugu((1, 3))
     with pytest.raises(TypeError, match="n은 정수여야 합니다."):
