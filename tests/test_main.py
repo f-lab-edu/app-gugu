@@ -32,7 +32,9 @@ def test_gugu_with_valid_numbers(mock_client: TestClient) -> None:
 
     mock_gugu_calculate = MagicMock(return_value=expected_gugu_calculate_results)
     mock_gugu = MagicMock()
-    mock_gugu_get_stringified_results = MagicMock(return_value=expected_gugu_calculate_stringified_result)
+    mock_gugu_get_stringified_results = MagicMock(
+        return_value=expected_gugu_calculate_stringified_result
+    )
     mock_gugu.calculate = mock_gugu_calculate
 
     with patch("main.Gugu", return_value=mock_gugu) as patched_gugu:
@@ -52,7 +54,9 @@ def test_gugu_with_valid_numbers(mock_client: TestClient) -> None:
 
         patched_gugu.assert_called_once()
         mock_gugu_calculate.assert_called_once_with(3)
-        mock_gugu_get_stringified_results.assert_called_once_with(expected_gugu_calculate_results)
+        mock_gugu_get_stringified_results.assert_called_once_with(
+            expected_gugu_calculate_results
+        )
 
         assert res.status_code == 200
         assert res.json() == expected_json_output
