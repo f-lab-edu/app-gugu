@@ -18,6 +18,9 @@ class Gugu:
         return self.__between
 
     def calculate(self, n: int) -> list[tuple[int, int, int]]:
+        if not isinstance(n, int):
+            raise TypeError("n은 정수여야 합니다.")
+
         min_range, max_range = self.between
         results: list[tuple[int, int, int]] = []
         for i in range(min_range, max_range + 1):

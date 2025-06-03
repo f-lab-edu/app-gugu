@@ -48,3 +48,15 @@ def test_non_integer_elements():
 def test_first_greater_than_second():
     with pytest.raises(ValueError, match="between의 첫 번째 값은 두 번째 값보다 작거나 같아야 합니다."):
         Gugu((5, 2))
+
+@pytest.mark.parametrize("invalid_input", [
+    "2",
+    2.0,
+    None,
+    [2],
+    {"n": 2},
+])
+def test_invalid_non_integer_input(invalid_input):
+    gugu = Gugu((1, 3))
+    with pytest.raises(TypeError, match="n은 정수여야 합니다."):
+        gugu.calculate(invalid_input)
