@@ -1,5 +1,5 @@
 class Gugu:
-    def __init__(self, between: tuple[int, int]=(1, 9)):
+    def __init__(self, between: tuple[int, int] = (1, 9)):
         self.__between = between
 
     @property
@@ -9,7 +9,7 @@ class Gugu:
     def calculate(self, n: int) -> list[tuple[int, int, int]]:
         min_range, max_range = self.between
         results: list[tuple[int, int, int]] = []
-        for i in range(min_range, max_range+1):
+        for i in range(min_range, max_range + 1):
             results.append((n, i, n * i))
         return results
 
