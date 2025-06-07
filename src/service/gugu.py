@@ -3,7 +3,7 @@ class Gugu:
         self.__between = between
 
     @property
-    def between(self) -> int:
+    def between(self) -> tuple[int, int]:
         return self.__between
 
     def calculate(self, n: int) -> list[tuple[int, int, int]]:
@@ -14,7 +14,7 @@ class Gugu:
         return results
 
     @classmethod
-    def get_stringified_results(cls, results: list[tuple[int, int, int]]) -> None:
+    def get_stringified_results(cls, results: list[tuple[int, int, int]]) -> str:
         text = ""
         for op1, op2, result in results:
             text += f"{op1} * {op2} = {result}\n"
