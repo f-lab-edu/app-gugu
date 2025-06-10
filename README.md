@@ -71,3 +71,9 @@ curl localhost:8000/health
 ```bash
 PYTHONPATH=$(pwd)/src pytest tests/
 ```
+
+### Coverage
+
+```bash
+PYTHONPATH=$(pwd)/src pytest --cov --cov-report=term --cov-report=html tests/
+```

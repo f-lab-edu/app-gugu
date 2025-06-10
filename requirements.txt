@@ -1,4 +1,6 @@
 fastapi[standard]
 pydantic==2.11.5
 pytest
-
+isort
+ruff
+pytest-cov

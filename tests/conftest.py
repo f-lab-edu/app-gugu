@@ -7,6 +7,6 @@ from main import app
 
 
 @pytest.fixture(scope="session")
-def mock_client() -> Generator[TestClient, None]:
+def mock_client() -> Generator[TestClient, None, None]:
     client = TestClient(app)
     yield client
