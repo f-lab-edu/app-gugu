@@ -72,7 +72,6 @@ curl localhost:8000/health
 PYTHONPATH=$(pwd)/src pytest tests/
 ```
 
-
 ### Coverage
 
 ```bash
